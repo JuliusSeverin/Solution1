@@ -1,0 +1,23 @@
+${all_hosts}
+
+${jmp_hst}
+%{ for index, public_ip in jmp_hst_ip ~}
+${jmp_hst_name[index]} ansible_host=${public_ip}
+%{ endfor ~}
+
+/*{*
+${jmp_hst_priv}
+%{ for index, private_ip in jmp_hst_priv_ip ~}
+${jmp_hst_name[index]}${addprivto} ansible_host=${private_ip}
+%{ endfor ~}
+*}*/
+
+${vm_dev}
+%{ for index, public_ip in vm_dev_ip ~}
+${vm_dev_name[index]} ansible_host=${public_ip}
+%{ endfor ~}
+
+${vm_dev_priv}
+%{ for index, private_ip in vm_dev_priv_ip ~}
+${vm_dev_name[index]}${addprivto} ansible_host=${private_ip}
+%{ endfor ~}
