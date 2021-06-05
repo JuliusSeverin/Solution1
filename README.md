@@ -9,6 +9,7 @@ Reqiurements:
 
 Solution:
 Infrastructure is buid with self-written reused terraform modules code. Additional template module creates ansible hosts file populated with vm's ip. 
+
 Resources - 1xVPC, 1xPublic subnet, 2xPrivate subnets, 2xNACL(Front, Back), 3xSecurity groups, 3xEC2 instances(JumpHost,VM_DEV0,VM_DEV1), 3xRT, 3xRT assocciations,
             IGW,NAT+EIP, local_file(ansible inventory-hosts).
  
