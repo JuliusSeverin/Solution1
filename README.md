@@ -16,8 +16,9 @@ Resources - 1xVPC, 1xPublic subnet, 2xPrivate subnets, 2xNACL(Front, Back), 3xSe
 
  
 - Jump Host RT points IGW
-- Jump Host can be accessed with ssh. Open ports 22,ICMP,80 (intentionally, blocked with acl rule)
+- Jump Host can be accessed with ssh. Open ports 22,ICMP and 80 (left intentionally, blocked by nacl rule)
 - Access from Jump_Host to VM_DEV0 and VM_DEV1 with ssh. Open ports 22,ICMP.
-- VM_DEV0 instance can access web via NAT.
-- VM_DEV1 router can connect with Jump Host and VM_DEV0
+- VM_DEV0 instance can access web via NAT. RT points NAT. SG rule points JumpHost SG on 22.
+- VM_DEV1 can't connect internet. RT left with default local. SG rule points jumpHost on 22.
 - Set of NACL rules as additional security layer. 
+- Generated ansible hosts file
